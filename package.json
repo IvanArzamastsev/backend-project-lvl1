@@ -2,6 +2,10 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
+  "files": [
+    "src/**",
+    "README.md"
+  ],
   "description": "[![Actions Status](https://github.com/IvanArzamastsev/backend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/IvanArzamastsev/backend-project-lvl1/actions)",
   "main": "index.js",
   "scripts": {
@@ -21,6 +25,12 @@
     "brain-games": "bin/brain-games.js"
   },
   "dependencies": {
-    "readline-sync": "^1.4.10"
+    "readline-sync": "1.4.10"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-jest": "24.4.0"
   }
 }
