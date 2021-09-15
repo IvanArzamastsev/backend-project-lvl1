@@ -1,7 +1,7 @@
 name: make_test_lint
 on: push
 jobs:
-  my-job: 
+  test_lint: 
     strategy:
       matrix:
         node-version: [16.x]
@@ -12,5 +12,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: npm install
+        run: make install
+        env:
+          CI: true
       - name: my-step
         run: make lint
