@@ -25,7 +25,7 @@
     "brain-games": "bin/brain-games.js"
   },
   "dependencies": {
-    "readline-sync": "1.4.10"
+    "readline-sync": "^1.4.10"
   },
   "devDependencies": {
     "eslint": "7.32.0",

@@ -1,5 +1,4 @@
-import readlineSync from 'readline-sync';
-
-export const nameGreeting = (name) => {
+const nameGreeting = (name) => {
   console.log(`Hellow, ${name}!`);
 };
+export default nameGreeting;
