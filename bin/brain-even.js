@@ -2,8 +2,8 @@
 import readlineSync from 'readline-sync';
 import { getRandomNumber } from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
 const name = readlineSync.question('May I have your name?: ');
+console.log('Welcome to the Brain Games!');
 console.log(`Hello, ${name}!`);
 let counter = 0;
 while (counter < 3) {
