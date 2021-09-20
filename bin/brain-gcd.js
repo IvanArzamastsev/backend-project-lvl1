@@ -2,7 +2,7 @@
 import readlineSync from 'readline-sync';
 import { getUserResponse } from '../src/index.js';
 
-const gameName = 'brain-calc';
+const gameName = 'brain-gcd';
 
 console.log('Welcome to the Brain Games!');
 const name = readlineSync.question('May I have your name?: ');
