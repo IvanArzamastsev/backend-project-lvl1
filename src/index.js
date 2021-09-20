@@ -63,6 +63,7 @@ export const makeCheckResponse = (userResponse, response) => userResponse === re
 
 export const getUserResponse = (gameName, name) => {
   if (gameName === 'brain-even') {
+    console.log('Answer "yes" if the number is even, otherwise answer "no".');
     for (let i = 0; i < 3; i += 1) {
       const question = getRandomNumber(100);
       console.log(`Question: ${question}`);
@@ -134,6 +135,21 @@ export const getUserResponse = (gameName, name) => {
       const userResponse = readlineSync.question('Your answer: ');
       const response = findTheSecretProgressionSymbol(question, difference);
       if (!makeCheckResponse(userResponse, String(response))) {
+        console.log(`'${userResponse}' is wrong answer ;(. Correct answer was '${response}'.`);
+        console.log(`Let's try again, ${name}!`);
+        return;
+      }
+      console.log('Correct!');
+    }
+  }
+  if (gameName === 'brain-prime') {
+    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+    for (let i = 0; i < 3; i += 1) {
+      const question = getRandomNumber(1000);
+      console.log(`Question: ${question}`);
+      const userResponse = readlineSync.question('Your answer: ');
+      const response = findDivisorsOfNumber(question).length === 2 ? 'yes' : 'no';
+      if (!makeCheckResponse(userResponse, response)) {
         console.log(`'${userResponse}' is wrong answer ;(. Correct answer was '${response}'.`);
         console.log(`Let's try again, ${name}!`);
         return;
