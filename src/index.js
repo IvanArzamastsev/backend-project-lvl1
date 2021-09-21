@@ -89,13 +89,13 @@ export const getUserResponse = (gameName, name) => {
       let response;
       switch (threeRandom) {
         case '*':
-          response = (oneRandom * twoRandom);
+          response = oneRandom * twoRandom;
           break;
         case '+':
-          response = (oneRandom + twoRandom);
+          response = oneRandom + twoRandom;
           break;
         case '-':
-          response = (oneRandom - twoRandom);
+          response = oneRandom - twoRandom;
           break;
         default:
           break;
