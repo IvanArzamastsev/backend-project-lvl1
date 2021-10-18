@@ -1,8 +1,19 @@
 import readlineSync from 'readline-sync';
+import { greeting } from './index.js';
 
-const greeting = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name?: ');
-  console.log(`Hello, ${name}`);
+export default (raunds, description) => {
+  const name = greeting();
+  console.log(description);
+  // eslint-disable-next-line no-restricted-syntax
+  for (const [question, answer] of raunds) {
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (answer !== userAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
+    }
+    console.log('Correct!');
+  }
+  console.log(`Congratulations, ${name}!`);
 };
-export default greeting;
