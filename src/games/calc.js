@@ -9,24 +9,24 @@ const getRandomSymbol = () => {
 
 const description = 'What is the result of the expression?';
 
-const getAnswer = (number1, number2, operator) => {
+const getAnswer = (operand1, operand2, operator) => {
   switch (operator) {
     case '*':
-      return number1 * number2;
+      return operand1 * operand2;
     case '+':
-      return number1 + number2;
+      return operand1 + operand2;
     case '-':
-      return number1 - number2;
+      return operand1 - operand2;
     default: throw new Error(`Unknown operator: ${operator}`);
   }
 };
 
 const generateRaund = () => {
-  const oneNumber = getRandomNumber(100);
-  const twoNumber = getRandomNumber(100);
-  const randomOperator = getRandomSymbol();
-  const question = `${oneNumber} ${randomOperator} ${twoNumber}`;
-  const answer = String(getAnswer(oneNumber, twoNumber, randomOperator));
+  const operand1 = getRandomNumber(100);
+  const operand2 = getRandomNumber(100);
+  const operator = getRandomSymbol();
+  const question = `${operand1} ${operator} ${operand2}`;
+  const answer = String(getAnswer(operand1, operand2, operator));
   return [question, answer];
 };
 
