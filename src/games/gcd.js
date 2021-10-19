@@ -10,7 +10,7 @@ const gcd = (number1, number2) => {
 
 const generateRaund = () => {
   const number1 = getRandomNumber(10);
-  const number2 = getRandomNumber(10);
+  const number2 = getRandomNumber(100);
   const question = `${number1} ${number2}`;
   const answer = String(gcd(number1, number2));
   return [question, answer];
