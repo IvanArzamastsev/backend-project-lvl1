@@ -3,35 +3,31 @@ import run from '../cli.js';
 
 const description = 'What number is missing in the progression?';
 
-const makeRandomSecretProgression = (firstNumber, difference, lengthOfPogression) => {
-  const arrayProgression = [firstNumber];
-  for (let i = 0; i < lengthOfPogression; i += 1) {
-    arrayProgression.push(arrayProgression[i] + difference);
+const getSecretProgression = (length, step, secretSymbol) => {
+  let firstNumber = getRandomNumber(1000);
+  const result = [];
+  for (let i = 0; i < length; i += 1) {
+    result.push(firstNumber);
+    firstNumber += step;
   }
-  arrayProgression[getRandomNumber(9)] = '..';
-  return arrayProgression.join(' ');
+  result[secretSymbol] = '..';
+  return result.join(' ');
 };
 
-const findTheSecretProgressionSymbol = (progression, difference) => {
-  const arrayProgression = progression.split(' ');
-  let result = 0;
-  if (arrayProgression[0] === '..') {
-    return Number(arrayProgression[1]) - difference;
+const getSecretSymbol = (progression, secretSymbol, step) => {
+  const arrayOfProgression = progression.split(' ');
+  if (secretSymbol === 0) {
+    return Number(arrayOfProgression[secretSymbol + 1] - step);
   }
-  for (let i = 1; i < arrayProgression.length; i += 1) {
-    if (arrayProgression[i] === '..') {
-      result = Number(arrayProgression[i - 1]) + difference;
-    }
-  }
-  return result;
+  return Number(arrayOfProgression[secretSymbol - 1]) + step;
 };
 
 const generateRaund = () => {
-  const firstNumber = getRandomNumber(100);
-  const difference = getRandomNumber(6);
-  const lengthOfPogression = 10;
-  const question = makeRandomSecretProgression(firstNumber, difference, lengthOfPogression);
-  const answer = String(findTheSecretProgressionSymbol(question, difference));
+  const length = 10;
+  const step = getRandomNumber(10);
+  const secretSymbol = getRandomNumber(10);
+  const question = getSecretProgression(length, step, secretSymbol);
+  const answer = String(getSecretSymbol(question, secretSymbol, step));
   return [question, answer];
 };
 

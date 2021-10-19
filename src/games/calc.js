@@ -2,11 +2,8 @@ import { raundCount, getRandomNumber } from '../index.js';
 import run from '../cli.js';
 
 const getRandomSymbol = () => {
-  let result = '';
   const symbol = '+-*';
-  for (let i = 0; i < 1; i += 1) {
-    result += symbol.charAt(Math.floor(Math.random() * symbol.length));
-  }
+  const result = symbol[getRandomNumber(2)];
   return result;
 };
 
@@ -34,9 +31,9 @@ const generateRaund = () => {
 };
 
 export default () => {
-  const raunds = [];
+  const rounds = [];
   for (let i = 0; i < raundCount; i += 1) {
-    raunds.push(generateRaund());
+    rounds.push(generateRaund());
   }
-  run(raunds, description);
+  run(rounds, description);
 };

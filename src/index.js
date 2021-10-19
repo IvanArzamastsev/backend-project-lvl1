@@ -10,14 +10,3 @@ export const greeting = () => {
 };
 
 export const getRandomNumber = (num) => Math.floor(Math.random() * num);
-
-export const findDivisorsOfNumber = (number) => {
-  const arrayOfDivisors = [];
-  // eslint-disable-next-line for-direction
-  for (let i = 1; i <= number; i += 1) {
-    if (number % i === 0) {
-      arrayOfDivisors.push(i);
-    }
-  }
-  return arrayOfDivisors;
-};

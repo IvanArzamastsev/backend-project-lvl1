@@ -6,7 +6,7 @@ const isEven = (num) => num % 2 === 0;
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const generateRaund = () => {
-  const question = getRandomNumber(100);
+  const question = getRandomNumber(10);
   const answer = isEven(question) ? 'yes' : 'no';
   return [question, answer];
 };

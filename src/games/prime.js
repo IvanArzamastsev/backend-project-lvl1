@@ -1,13 +1,24 @@
-import { raundCount, getRandomNumber, findDivisorsOfNumber } from '../index.js';
+import { raundCount, getRandomNumber } from '../index.js';
 import run from '../cli.js';
-
-const isAnswer = (number) => findDivisorsOfNumber(number).length === 2;
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
+const checkForPrime = (number) => {
+  if (number < 2) {
+    return false;
+  }
+  const rootOfNumber = Math.sqrt(number);
+  for (let i = 2; i <= rootOfNumber; i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
 const generateRaund = () => {
   const question = getRandomNumber(1000);
-  const answer = isAnswer(question) ? 'yes' : 'no';
+  const answer = checkForPrime(question) ? 'yes' : 'no';
   return [question, answer];
 };
 
