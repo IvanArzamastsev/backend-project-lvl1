@@ -3,7 +3,7 @@ import run from '../cli.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const checkForPrime = (number) => {
+const isPrime = (number) => {
   if (number < 2) {
     return false;
   }
@@ -18,7 +18,7 @@ const checkForPrime = (number) => {
 
 const generateRaund = () => {
   const question = getRandomNumber(1000);
-  const answer = checkForPrime(question) ? 'yes' : 'no';
+  const answer = isPrime(question) ? 'yes' : 'no';
   return [question, answer];
 };
 
