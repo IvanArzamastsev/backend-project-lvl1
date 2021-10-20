@@ -3,9 +3,11 @@ import run from '../cli.js';
 
 const getRandomSymbol = () => {
   const symbol = '+-*';
-  const result = symbol[getRandomNumber(2)];
+  const result = symbol[getRandomNumber(symbol.length - 1)];
   return result;
 };
+
+const MAX_OPERAND_NUMBER = 100;
 
 const description = 'What is the result of the expression?';
 
@@ -21,9 +23,9 @@ const getAnswer = (operand1, operand2, operator) => {
   }
 };
 
-const generateRaund = () => {
-  const operand1 = getRandomNumber(100);
-  const operand2 = getRandomNumber(100);
+const generateRound = () => {
+  const operand1 = getRandomNumber(MAX_OPERAND_NUMBER);
+  const operand2 = getRandomNumber(MAX_OPERAND_NUMBER);
   const operator = getRandomSymbol();
   const question = `${operand1} ${operator} ${operand2}`;
   const answer = String(getAnswer(operand1, operand2, operator));
@@ -33,7 +35,7 @@ const generateRaund = () => {
 export default () => {
   const rounds = [];
   for (let i = 0; i < raundCount; i += 1) {
-    rounds.push(generateRaund());
+    rounds.push(generateRound());
   }
   run(rounds, description);
 };

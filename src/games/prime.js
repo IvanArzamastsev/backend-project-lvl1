@@ -3,6 +3,8 @@ import run from '../cli.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
+const MAX_NUMBER = 100;
+
 const isPrime = (number) => {
   if (number < 2) {
     return false;
@@ -16,8 +18,8 @@ const isPrime = (number) => {
   return true;
 };
 
-const generateRaund = () => {
-  const question = getRandomNumber(1000);
+const generateRound = () => {
+  const question = getRandomNumber(MAX_NUMBER);
   const answer = isPrime(question) ? 'yes' : 'no';
   return [question, answer];
 };
@@ -25,7 +27,7 @@ const generateRaund = () => {
 export default () => {
   const raunds = [];
   for (let i = 0; i < raundCount; i += 1) {
-    raunds.push(generateRaund());
+    raunds.push(generateRound());
   }
   run(raunds, description);
 };
